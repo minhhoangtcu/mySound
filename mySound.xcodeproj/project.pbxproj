@@ -491,6 +491,7 @@
 				B8B5372E1CB8148D0034502B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8B5372F1CB8148D0034502B /* Build configuration list for PBXNativeTarget "mySoundTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +500,7 @@
 				B8B537311CB8148D0034502B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8B537321CB8148D0034502B /* Build configuration list for PBXNativeTarget "mySoundUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +509,7 @@
 				B8B537341CB8148D0034502B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
