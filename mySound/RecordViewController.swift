@@ -15,13 +15,26 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     
     var audioRecorder:AVAudioRecorder!
     
-    var isRecording: Bool = false
     let txtTapToRecord: String = "Tap to Record"
     let txtTapToStop: String = "Tap to Stop Recording"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Get the full documentary path and set up where to put the recording
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as String
+        let recordingName = "recordedVoice.wav"
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        print(filePath)
+        
+        // Get the audio session from the phone hardware
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        
+        try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
+        audioRecorder.delegate = self
+        audioRecorder.meteringEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,34 +43,23 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
-        // Set text
-        if (isRecording) {
+        // Stop recording
+        if (audioRecorder.recording) {
+            let session = AVAudioSession.sharedInstance()
+            try! session.setActive(false)
             recordFeedback.text = txtTapToRecord
+            audioRecorder.stop();
         }
+        // Start recording
         else {
             recordFeedback.text = txtTapToStop
+            audioRecorder.prepareToRecord()
+            audioRecorder.record()
         }
-        isRecording = !isRecording
-        
-        // Actual Record
-        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as String
-        let recordingName = "recordedVoice.wav"
-        let pathArray = [dirPath, recordingName]
-        let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        print(filePath)
-        
-        let session = AVAudioSession.sharedInstance()
-        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        
-        try! audioRecorder = AVAudioRecorder(URL: filePath!, settings: [:])
-        audioRecorder.delegate = self
-        audioRecorder.meteringEnabled = true
-        audioRecorder.prepareToRecord()
-        audioRecorder.record()
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        <#code#>
+        print("finished recording")
     }
 
 }
