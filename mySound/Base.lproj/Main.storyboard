@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Record View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mySound" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RecordViewController" customModule="mySound" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,7 +22,6 @@
                                 <state key="normal" image="recordButton"/>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d0A-EE-7yj"/>
-                                    <segue destination="dsb-lG-bGc" kind="show" id="Vsn-Xk-HaC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tf-n0-Yhm">
@@ -43,6 +42,7 @@
                     <navigationItem key="navigationItem" id="Rjn-Bm-p9H"/>
                     <connections>
                         <outlet property="recordFeedback" destination="5tf-n0-Yhm" id="cK6-aJ-rII"/>
+                        <segue destination="dsb-lG-bGc" kind="show" identifier="stopRecording" id="8Hd-zr-hWA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
