@@ -26,7 +26,7 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
         let filePath = NSURL.fileURLWithPathComponents(pathArray)
-        print(filePath)
+        print("RecordView > Future recording files stored at: \(filePath)")
         
         // Get the audio session from the phone hardware
         let session = AVAudioSession.sharedInstance()
@@ -43,15 +43,15 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
 
     @IBAction func recordAudio(sender: AnyObject) {
-        // Stop recording
+        
         if (audioRecorder.recording) {
+            print("RecordView > Stopped recording.")
+            audioRecorder.stop();
             let session = AVAudioSession.sharedInstance()
             try! session.setActive(false)
             recordFeedback.text = txtTapToRecord
-            audioRecorder.stop();
-        }
-        // Start recording
-        else {
+        } else {
+            print("RecordView > Start recording.")
             recordFeedback.text = txtTapToStop
             audioRecorder.prepareToRecord()
             audioRecorder.record()
@@ -59,7 +59,11 @@ class RecordViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
-        print("finished recording")
+        if (flag){
+            self.performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+        } else {
+            print("RecordView > Finished recording and failed to save the file.")
+        }
     }
 
 }
