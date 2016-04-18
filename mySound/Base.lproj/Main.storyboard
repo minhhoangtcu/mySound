@@ -71,10 +71,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa7-VN-YJj" userLabel="ReverbButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="268"/>
                                                 <state key="normal" image="ReverbButton"/>
+                                                <connections>
+                                                    <action selector="tapSoundButton:" destination="dsb-lG-bGc" eventType="touchUpInside" id="9r2-vg-ffB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLG-vC-uep" userLabel="DarthVaderButton">
                                                 <rect key="frame" x="280" y="0.0" width="280" height="268"/>
                                                 <state key="normal" image="DarthVaderButton"/>
+                                                <connections>
+                                                    <action selector="tapSoundButton:" destination="dsb-lG-bGc" eventType="touchUpInside" id="xbU-ar-U5e"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -84,10 +90,16 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agf-ie-ChD" userLabel="RabbitButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="268"/>
                                                 <state key="normal" image="RabbitButton"/>
+                                                <connections>
+                                                    <action selector="tapSoundButton:" destination="dsb-lG-bGc" eventType="touchUpInside" id="lcJ-He-84s"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Jh-vw-h9p" userLabel="SnailButton">
                                                 <rect key="frame" x="280" y="0.0" width="280" height="268"/>
                                                 <state key="normal" image="SnailButton"/>
+                                                <connections>
+                                                    <action selector="tapSoundButton:" destination="dsb-lG-bGc" eventType="touchUpInside" id="8bR-eo-ki4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -102,6 +114,12 @@
                             <constraint firstItem="JOx-Ix-Tgi" firstAttribute="top" secondItem="649-SF-iUU" secondAttribute="bottom" id="wdj-Hh-s8D"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="darthVaderButton" destination="gLG-vC-uep" id="0xV-FV-kAc"/>
+                        <outlet property="rabbitButton" destination="Agf-ie-ChD" id="jue-RI-8bQ"/>
+                        <outlet property="reverbButton" destination="Fa7-VN-YJj" id="R2m-gn-KzB"/>
+                        <outlet property="snailButton" destination="9Jh-vw-h9p" id="ddf-no-2yd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yjp-xY-NXO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

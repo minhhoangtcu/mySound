@@ -8,14 +8,29 @@
 
 import UIKit
 
-class PlayViewController: UIViewController {
+class PlaySoundsViewController: UIViewController {
+    
+    @IBOutlet weak var reverbButton: UIButton!
+    @IBOutlet weak var darthVaderButton: UIButton!
+    @IBOutlet weak var rabbitButton: UIButton!
+    @IBOutlet weak var snailButton: UIButton!
+    
+    enum ButtonType: Int {case Reverb = 0, DarthVader, Rabbit, Snail}
     
     var recordedAudioURL: NSURL!
 
+    @IBAction func tapSoundButton(sender: UIButton) {
+        print("Sound button tapped!")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        configureUI(.NotPlaying)
     }
 
     override func didReceiveMemoryWarning() {
